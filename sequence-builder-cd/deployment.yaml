@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sequence-builder-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sequence-builder-backend
+  template:
+    metadata:
+      labels:
+        app: sequence-builder-backend
+    spec:
+      containers:
+      - image: chloesk/test-react-app:v1
+        name: sequence-builder
+        ports:
+        - containerPort: 80
+          protocol: TCP
