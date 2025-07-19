@@ -12,6 +12,7 @@ helmCharts:
   valuesfile: arc-values.yaml
 
 resources:
+- backend
 - sa.yaml
 - secret.yaml
 - secretstore.yaml
