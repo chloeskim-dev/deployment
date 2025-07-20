@@ -10,18 +10,10 @@ spec:
   target:
     name: postgres
   data:
-  - secretKey: POSTGRES_USER
-    remoteRef:
-      key: secret/sequence-builder/backend/postgres
-      property: POSTGRES_USER
   - secretKey: POSTGRES_PASSWORD
     remoteRef:
       key: secret/sequence-builder/backend/postgres
       property: POSTGRES_PASSWORD
-  - secretKey: POSTGRES_DB
-    remoteRef:
-      key: secret/sequence-builder/backend/postgres
-      property: POSTGRES_DB
 ---
 apiVersion: v1
 kind: Service
@@ -57,6 +49,13 @@ spec:
       containers:
       - name: postgres
         image: postgres:17-alpine
+        env:
+        - name: POSTGRES_USER
+          value: sequence-builder
+        - name: POSTGRES_CONNECTION_POOL
+          value: 5
+        - name: POSTGRES_DB
+          value: "axum_web"
         envFrom:
         - secretRef:
             name: postgres
