@@ -51,9 +51,9 @@ spec:
         image: postgres:17-alpine
         env:
         - name: POSTGRES_USER
-          value: sequence-builder
+          value: "sequence-builder"
         - name: POSTGRES_CONNECTION_POOL
-          value: 5
+          value: "5"
         - name: POSTGRES_DB
           value: "axum_web"
         envFrom:
