@@ -13,6 +13,7 @@ helmCharts:
 
 resources:
 - backend
+- frontend
 - sa.yaml
 - secret.yaml
 - secretstore.yaml
