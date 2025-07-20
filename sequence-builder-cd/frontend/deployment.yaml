@@ -18,5 +18,5 @@ spec:
       - image: chloesk/sequence-builder-frontend:0.0.1
         name: frontend
         env:
-          name: REACT_APP_API_URL
-          value: http://sequence-builder-backend.sequence-builder.svc.cluster.local.
+        - name: REACT_APP_API_URL
+          value: "http://sequence-builder-backend.sequence-builder.svc.cluster.local."
