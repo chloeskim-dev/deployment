@@ -17,6 +17,10 @@ spec:
       containers:
       - image: cloudflare/cloudflared:2025.7.0
         name: cloudflared
+        args:
+        - "tunnel"
+        - "--no-auto-update"
+        - "run"
         envFrom:
         - secretRef:
             name: cloudflared
