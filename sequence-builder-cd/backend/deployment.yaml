@@ -15,7 +15,7 @@ spec:
         app: backend
     spec:
       containers:
-      - image: chloesk/sequencebuilder-backend:0.0.1
+      - image: chloesk/sequence-builder-backend:0.0.1
         name: backend
         env:
         - name: JWT_ENABLE_REVOKED_TOKENS
