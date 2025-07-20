@@ -15,5 +15,37 @@ spec:
         app: backend
     spec:
       containers:
-      - image: chloesk/sequencebuilder-backend:latest
+      - image: chloesk/sequencebuilder-backend:0.0.1
         name: backend
+        env:
+        - name: JWT_ENABLE_REVOKED_TOKENS
+          value: "true" # using revoked tokens
+        - name: JWT_EXPIRE_ACCESS_TOKEN_SECONDS
+          value: "3600" # 1 hour 
+        - name: JWT_EXPIRE_REFRESH_TOKEN_SECONDS
+          value: "7776000" # 90 days
+        - name: JWT_VALIDATION_LEEWAY_SECONDS
+          value: "60" # 1 minute, default
+        - name: POSTGRES_CONNECTION_POOL
+          value: "5"
+        - name: POSTGRES_DB
+          value: "axum_web"
+        - name: POSTGRES_HOST
+          value: "postgres.sequence-builder.svc.cluster.local."
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          value: "sequence-builder"
+        - name: REDIS_HOST
+          value: "redis.sequence-builder.svc.cluster.local."
+        - name: REDIS_PORT
+          value: "6379"
+        - name: SERVICE_HOST
+          value: "0.0.0.0"
+        - name: SERVICE_PORT
+          value: "8080"
+        envFrom:
+        - secretRef:
+            name: postgres
+        - secretRef:
+            name: sequence-builder-backend
