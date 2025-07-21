@@ -15,7 +15,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: chloesk/sequence-builder-frontend:0.0.2
+      - image: chloesk/sequence-builder-frontend:0.0.3
         name: frontend
         env:
         - name: REACT_APP_API_URL
