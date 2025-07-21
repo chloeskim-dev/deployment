@@ -19,4 +19,4 @@ spec:
         name: frontend
         env:
         - name: REACT_APP_API_URL
-          value: "https://api.sequence-builder.chloeskim.com"
+          value: "https://api.chloeskim.com"
