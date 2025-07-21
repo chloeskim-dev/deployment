@@ -5,4 +5,5 @@ resources:
 - deployment.yaml
 - postgres.yaml
 - redis.yaml
+- secrets.yaml
 - service.yaml
