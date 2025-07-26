@@ -1,0 +1,5 @@
+githubConfigSecret: arc-github-app-secret
+githubConfigUrl: https://github.com/chloeskim-dev/sequence-builder-backend
+controllerServiceAccount:
+  name: gha-runner-scale-set-controller-gha-rs-controller
+  namespace: actions-runner-controller
