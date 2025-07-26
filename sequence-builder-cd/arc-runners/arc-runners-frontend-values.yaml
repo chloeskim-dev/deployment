@@ -1,5 +1,6 @@
 githubConfigSecret: arc-github-app-secret
 githubConfigUrl: https://github.com/chloeskim-dev/sequence-builder-frontend
+containerMode: dind
 controllerServiceAccount:
   name: gha-runner-scale-set-controller-gha-rs-controller
   namespace: actions-runner-controller
