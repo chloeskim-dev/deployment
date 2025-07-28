@@ -20,3 +20,6 @@ helmCharts:
         resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
           jqPathExpressions:
           - '.webhooks[]?.clientConfig.caBundle'
+
+resources:
+- sa.yaml
