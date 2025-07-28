@@ -22,6 +22,7 @@ helmCharts:
           - '.webhooks[]?.clientConfig.caBundle'
 
 resources:
+- cloudflared.yaml
 - sa.yaml
 - secrets.yaml
 - secretstore.yaml
