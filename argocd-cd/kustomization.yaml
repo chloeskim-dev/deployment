@@ -13,6 +13,7 @@ helmCharts:
   valuesInline:
     configs:
       cm:
+        kustomize.buildOptions: --enable-helm
         resource.customizations.ignoreDifferences.apiextensions.k8s.io_CustomResourceDefinition: |
           jsonPointers:
           - /spec/preserveUnknownFields
