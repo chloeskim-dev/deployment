@@ -23,4 +23,5 @@ helmCharts:
 
 resources:
 - sa.yaml
+- secrets.yaml
 - secretstore.yaml
