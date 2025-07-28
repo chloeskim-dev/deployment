@@ -13,17 +13,17 @@ helmCharts:
   valuesInline:
     configs:
       cm:
-        #dex.config: |
-        #  connectors:
-        #    - type: oidc
-        #      id: oidc
-        #      name: OIDC
-        #      config:
-        #        issuer: https://chloeskim.cloudflareaccess.com/cdn-cgi/access/sso/oidc/adfcbe1c35582958b60a735468ff175a1309b012e737a895530fc6d7c615b0f8
-        #        clientID: adfcbe1c35582958b60a735468ff175a1309b012e737a895530fc6d7c615b0f8
-        #        clientSecret: $argocd-dex-oidc:clientSecret
-        #        # Since no email verification was involved in creating CF Access App, disable this:
-        #        insecureSkipEmailVerified: true
+        dex.config: |
+          connectors:
+            - type: oidc
+              id: oidc
+              name: OIDC
+              config:
+                issuer: https://chloeskim.cloudflareaccess.com/cdn-cgi/access/sso/oidc/adfcbe1c35582958b60a735468ff175a1309b012e737a895530fc6d7c615b0f8
+                clientID: adfcbe1c35582958b60a735468ff175a1309b012e737a895530fc6d7c615b0f8
+                clientSecret: $argocd-dex-oidc:clientSecret
+                # Since no email verification was involved in creating CF Access App, disable this:
+                insecureSkipEmailVerified: true
         kustomize.buildOptions: --enable-helm
         resource.customizations.ignoreDifferences.apiextensions.k8s.io_CustomResourceDefinition: |
           jsonPointers:
@@ -31,6 +31,11 @@ helmCharts:
         resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
           jqPathExpressions:
           - '.webhooks[]?.clientConfig.caBundle'
+      rbac:
+        policy.csv: |
+          g, chloesk.dev@gmail.com, role:admin
+        policy.default: role:readonly
+        scopes: "[email]"
     global:
       domain: argocd.chloeskim.com
 
