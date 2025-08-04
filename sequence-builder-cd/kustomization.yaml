@@ -9,3 +9,6 @@ resources:
 - sa.yaml
 - secrets.yaml
 - secretstore.yaml
+images:
+- name: chloesk/sequence-builder-backend
+  newTag: 0.0.1
