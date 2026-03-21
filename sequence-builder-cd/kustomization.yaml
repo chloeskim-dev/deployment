@@ -13,4 +13,4 @@ images:
 - name: chloesk/sequence-builder-backend
   newTag: 0.1.8
 - name: chloesk/sequence-builder-frontend
-  newTag: 0.1.4
+  newTag: 0.1.5
